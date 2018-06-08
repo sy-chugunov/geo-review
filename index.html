@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Сервис гео отзывов</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1" /> 
+    <link rel="stylesheet" href=css/main.css>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="review hide">
+        <div class="review-header">
+            <span class="pull-left">
+                <i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+            </span>
+            <div class="address"></div>
+            <span class="close pull-right">
+                <i id="close" class="fa fa-times fa-lg"></i>
+            </span>
+        </div>
+        <div class="review-rewiews">
+            <ul class="review-rewiews__list" id="rewiewsList">
+            </ul>
+        </div>
+        <form class="review-content">
+            <span>ВАШ ОТЗЫВ</span>
+            <input type="text" id="yourname" placeholder="Ваше имя">
+            <input type="text" id="place" placeholder="Укажите место">
+            <textarea id="text" placeholder="Поделитесь впечатлениями"></textarea>
+        </form>
+        <div class="review-footer">
+            <button id="button-save">Добавить</button>
+        </div>
+    </div>
+    <script type="text/x-handlebars-template" id="rewiewsListTemplate">
+        {{#each list}}
+            <li class="list-item">
+                <strong>{{name}}</strong> {{place}} {{date}}
+                <div class="list-item__description">{{text}}</div>
+            </li>
+        {{/each}}
+    </script>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" type="text/javascript"></script>
+</body>
+</html>
